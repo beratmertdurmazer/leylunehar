@@ -527,9 +527,21 @@ function openDetailModal(id) {
   const isArchived = item.status === 'archived';
   const ctaLabel = isArchived ? 'Arşiv Bekleme Listesine Yazıl' : 'Bu Edisyonu Ayırt';
 
+  const macroImage = item.image.replace('.jpg', '-macro.jpg');
+
   detailContent.innerHTML = `
     <div class="detail-image-col">
-      <img src="${item.image}?v=2" alt="Leyl-ü Nehar ${item.name}" />
+      <img src="${item.image}?v=2" alt="Leyl-ü Nehar ${item.name}" id="detailMainImg" class="detail-main-img" />
+      <div class="detail-thumbs" role="tablist" aria-label="Ürün görünümleri">
+        <button type="button" class="detail-thumb-btn active" data-thumb-src="${item.image}?v=2" role="tab" aria-selected="true">
+          <img src="${item.image}?v=2" alt="${item.name} Stüdyo" />
+          <span>Stüdyo</span>
+        </button>
+        <button type="button" class="detail-thumb-btn" data-thumb-src="${macroImage}" role="tab" aria-selected="false">
+          <img src="${macroImage}" alt="${item.name} Makro Doku" />
+          <span>Makro Doku</span>
+        </button>
+      </div>
     </div>
     <div class="detail-info-col">
       <p class="eyebrow">${item.category === 'essence' ? 'ATELIER DE PARFUM' : 'ATELIER DE CIRE'} &middot; ${item.realmLabel.toUpperCase()} SERİSİ</p>
@@ -565,6 +577,23 @@ function openDetailModal(id) {
       <button type="button" class="btn-primary btn-full" id="detailReserveBtn">${ctaLabel}</button>
     </div>
   `;
+
+  const mainImgEl = document.getElementById('detailMainImg');
+  detailContent.querySelectorAll('.detail-thumb-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      detailContent.querySelectorAll('.detail-thumb-btn').forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      mainImgEl.style.opacity = '0.35';
+      setTimeout(() => {
+        mainImgEl.src = btn.dataset.thumbSrc;
+        mainImgEl.style.opacity = '1';
+      }, 120);
+    });
+  });
 
   document.getElementById('detailReserveBtn').addEventListener('click', () => {
     closeModals();
