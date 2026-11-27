@@ -6,7 +6,7 @@
   <title>LEYL-Ü NEHAR — A4 Baskıya Hazır Etiket &amp; Kart Şablonu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Belleza&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #12100e;
@@ -213,11 +213,11 @@
       align-items: center;
       justify-content: space-between;
       text-align: center;
-      padding: 11mm 9mm;
+      padding: 10mm 7mm;
     }
 
     .a4-sheet.layout-card .label-cell {
-      padding: 8mm 8mm;
+      padding: 7.5mm 7mm;
     }
 
     /* Subtle corner tear-guide marks (torn away when using metal ruler) */
@@ -239,29 +239,33 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.2mm;
+      gap: 1.5mm;
     }
 
     .lbl-brand {
-      font-family: 'Cinzel', Georgia, serif;
-      font-size: 13.5pt;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      color: var(--print-ink);
+      font-family: Optima, 'Belleza', Georgia, serif;
+      font-size: 18pt;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #110f0d;
       line-height: 1;
     }
 
     .a4-sheet.layout-card .lbl-brand {
-      font-size: 11.5pt;
+      font-size: 14.5pt;
     }
 
     .lbl-atelier {
-      font-family: 'Inter', sans-serif;
-      font-size: 6.2pt;
-      font-weight: 400;
-      letter-spacing: 0.22em;
+      font-family: Optima, 'Belleza', sans-serif;
+      font-size: 8.4pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--print-sub);
+      color: #24201c;
+    }
+
+    .a4-sheet.layout-card .lbl-atelier {
+      font-size: 7pt;
     }
 
     .lbl-center {
@@ -269,8 +273,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1.4mm;
-      min-height: 15mm;
+      gap: 0.8mm;
+      min-height: 16mm;
     }
 
     .a4-sheet.layout-card .lbl-center {
@@ -278,33 +282,43 @@
     }
 
     .lbl-name {
-      font-family: 'Cinzel', Georgia, serif;
-      font-size: 11pt;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      color: var(--print-ink);
+      font-family: Optima, 'Belleza', Georgia, serif;
+      font-size: 12.8pt;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #110f0d;
+      line-height: 1.1;
     }
 
     .a4-sheet.layout-card .lbl-name {
-      font-size: 10pt;
+      font-size: 11pt;
     }
 
     .lbl-edition {
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: 'Bad Script', 'Cormorant Garamond', cursive;
       font-style: italic;
-      font-size: 12.5pt;
+      font-size: 13.5pt;
       font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--print-ink);
+      letter-spacing: 0.03em;
+      color: #1b1714;
+      line-height: 1.15;
+    }
+
+    .a4-sheet.layout-card .lbl-edition {
+      font-size: 11.5pt;
     }
 
     .lbl-bottom {
-      font-family: 'Inter', sans-serif;
-      font-size: 5.5pt;
-      font-weight: 400;
-      letter-spacing: 0.17em;
+      font-family: Optima, 'Belleza', sans-serif;
+      font-size: 7pt;
+      font-weight: 500;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--print-sub);
+      color: #24201c;
+    }
+
+    .a4-sheet.layout-card .lbl-bottom {
+      font-size: 6pt;
     }
 
     /* Print Rules: Pure 1:1 A4 Black Ink on User's Cotton Paper */
