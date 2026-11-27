@@ -270,7 +270,7 @@ const mobileNav = document.getElementById('mobileNav');
 const essenceGrid = document.getElementById('essenceGrid');
 const sculpturalGrid = document.getElementById('sculpturalGrid');
 const candleGrid = document.getElementById('candleGrid');
-const themeToggles = document.querySelectorAll('#themeToggle, #mobileThemeToggle');
+const themeToggles = document.querySelectorAll('[data-theme-toggle]');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const realmCards = document.querySelectorAll('[data-realm-select]');
 
