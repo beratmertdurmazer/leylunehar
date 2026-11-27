@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEYLÜNEHAR — Atelier de Parfum &amp; de Cire | İstanbul</title>
+  <meta name="description" content="Leylünehar — 17. yüzyıl İstanbul attarlığı ve Frenk atölye yalınlığıyla numaralı, tekrarsız esanslar ve el dökümü mumlar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle atmospheric paper/film grain -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <nav class="nav-group nav-left" aria-label="Koleksiyonlar">
+        <a href="#esans" class="nav-link">Atelier de Parfum</a>
+        <a href="#mum" class="nav-link">Atelier de Cire</a>
+      </nav>
+
+      <a href="#hero" class="brand-mark" aria-label="Leylünehar Ana Sayfa">
+        <span class="brand-name">LEYLÜNEHAR</span>
+        <span class="brand-sub">İSTANBUL &middot; ATELIER</span>
+      </a>
+
+      <nav class="nav-group nav-right" aria-label="Atölye">
+        <a href="#iki-alem" class="nav-link">İki Âlem</a>
+        <a href="#manifesto" class="nav-link">Manifesto</a>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Tema değiştir: Leyl (Koyu) veya Nehar (Açık)" title="Leyl (Gece) / Nehar (Gündüz) Teması">
+          <span class="theme-opt" data-theme-label="dark">Leyl</span>
+          <span class="theme-sep" aria-hidden="true">/</span>
+          <span class="theme-opt" data-theme-label="light">Nehar</span>
+        </button>
+        <button type="button" class="nav-cta" data-open-request>
+          <span class="cta-dot" aria-hidden="true"></span>
+          Özel Talep
+        </button>
+      </nav>
+
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#esans" class="mobile-link">Atelier de Parfum</a>
+      <a href="#mum" class="mobile-link">Atelier de Cire</a>
+      <a href="#iki-alem" class="mobile-link">İki Âlem (Leyl &amp; Nehar)</a>
+      <a href="#zanaat" class="mobile-link">Mühür &amp; Şişe</a>
+      <a href="#manifesto" class="mobile-link">Manifesto</a>
+      <button type="button" class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Tema değiştir">
+        <span class="theme-opt" data-theme-label="dark">Leyl (Koyu)</span>
+        <span class="theme-sep" aria-hidden="true">/</span>
+        <span class="theme-opt" data-theme-label="light">Nehar (Açık)</span>
+      </button>
+      <button type="button" class="btn-outline mobile-cta" data-open-request>Edisyon Ayırt / Özel Talep</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-ambient" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">I. İLK EDİSYON &mdash; İSTANBUL</p>
+          <h1 class="hero-title">
+            Gece ile Gündüzün<br />
+            <em>Tekrarsız Mühürü.</em>
+          </h1>
+          <p class="hero-lead">
+            17. yüzyıl İstanbul attarlığının ağırbaşlı sabrı, Frenk atölyesinin yalın çizgisiyle buluşuyor.
+            Her şişe ve her mum elde numaralandırılır; tükenen bir edisyon bir daha dökülmez.
+          </p>
+          <div class="hero-actions">
+            <a href="#esans" class="btn-primary">Arşivi İncele</a>
+            <button type="button" class="btn-ghost" data-open-request="buy-u-suz">Edisyon Ayırt</button>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <span class="meta-label">İmza Edisyon</span>
+              <span class="meta-value">Bûy ü Sûz &middot; <em>N° 03 / 100</em></span>
+            </div>
+            <div class="meta-divider" aria-hidden="true"></div>
+            <div class="meta-item">
+              <span class="meta-label">Tedarik Usulü</span>
+              <span class="meta-value">Yalnızca Özel Talep ile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="hero-frame">
+            <img src="assets/buy-u-suz.jpg" alt="Leylünehar Atelier de Parfum — Bûy ü Sûz N° 03 / 100 el dökümü esans şişesi" class="hero-img" />
+            <figcaption class="hero-caption">
+              <span>BÛY Ü SÛZ</span>
+              <em>N° 03 / 100 &mdash; Saf Esans</em>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true">
+        <span>KEŞFET</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Tenets Strip -->
+    <div class="tenets-strip" role="region" aria-label="Atölye İlkeleri">
+      <div class="container tenets-inner">
+        <span>I. NUMARALI TEK ÜRETİM</span>
+        <span class="sep">&loz;</span>
+        <span>II. HAM PAMUK ETİKET &amp; SİYAH MÜHÜR</span>
+        <span class="sep">&loz;</span>
+        <span>III. ŞİŞE İÇİ BOTANİK ÖZ</span>
+        <span class="sep">&loz;</span>
+        <span>IV. İSTANBUL ATÖLYESİ</span>
+      </div>
+    </div>
+
+    <!-- Two Realms: LEYL & NEHAR -->
+    <section class="section realms-section" id="iki-alem">
+      <div class="container">
+        <div class="section-header centered">
+          <p class="eyebrow">II. İKİ ÂLEM</p>
+          <h2 class="section-title">Leyl <em>ve</em> Nehar</h2>
+          <p class="section-desc">
+            Zaman ikiye ayrılır; kokunun tabiatı da öyle. Leylünehar koleksiyonu,
+            gecenin derin reçinesi ile gündüzün serin berraklığı arasında kurulur.
+          </p>
+        </div>
+
+        <div class="realms-grid">
+          <article class="realm-card realm-leyl" data-realm-select="leyl">
+            <div class="realm-top">
+              <span class="realm-roman">A.</span>
+              <span class="realm-tag">GECE SERİSİ</span>
+            </div>
+            <h3 class="realm-title">LEYL</h3>
+            <p class="realm-subtitle">Kandil, İsli Ud ve Reçine</p>
+            <p class="realm-text">
+              Günün çekildiği, taş duvarların soğuduğu ve kandilin yandığı saatler için.
+              Koyu kehribar, yanık sedir, Şam gülü kurusu, mür ve eski parşömen notaları.
+            </p>
+            <span class="realm-action">Leyl Edisyonlarını Süz &rarr;</span>
+          </article>
+
+          <article class="realm-card realm-nehar" data-realm-select="nehar">
+            <div class="realm-top">
+              <span class="realm-roman">B.</span>
+              <span class="realm-tag">GÜNDÜZ SERİSİ</span>
+            </div>
+            <h3 class="realm-title">NEHAR</h3>
+            <p class="realm-subtitle">Seher, Defne ve Serin Mermer</p>
+            <p class="realm-text">
+              Boğaziçi’nin ilk ışığı, ıslak avlu taşı ve rüzgârda kıpırdayan defne yaprakları.
+              Bergamot kabuğu, acı defne, servi, beyaz keten ve duru misk akorları.
+            </p>
+            <span class="realm-action">Nehar Edisyonlarını Süz &rarr;</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atelier de Parfum (Essence Archive) -->
+    <section class="section collection-section" id="esans">
+      <div class="container">
+        <div class="section-header split">
+          <div>
+            <p class="eyebrow">III. ATELIER DE PARFUM</p>
+            <h2 class="section-title">Esans <em>Arşivi</em></h2>
+          </div>
+          <div class="header-right-block">
+            <p class="section-desc">
+              Her biri sınırlı sayıda şişelenen saf esanslar. İçerisinde yüzen odun, reçine ve kuru çiçekler
+              zamanla özle bütünleşir. Tükenen seriler arşive kaldırılır.
+            </p>
+            <div class="filter-bar" role="tablist" aria-label="Esans serisi filtresi">
+              <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Tümü</button>
+              <button type="button" class="filter-btn" data-filter="leyl" role="tab" aria-selected="false">Leyl</button>
+              <button type="button" class="filter-btn" data-filter="nehar" role="tab" aria-selected="false">Nehar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-grid essence-grid" id="essenceGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature Bottle & Torn Label Craft Section -->
+    <section class="section craft-section" id="zanaat">
+      <div class="container">
+        <div class="craft-layout">
+          <div class="craft-copy">
+            <p class="eyebrow">IV. ŞİŞE ANATOMİSİ &amp; MÜHÜR</p>
+            <h2 class="section-title">Değişmeyen Biçim,<br /><em>Değişen Öz.</em></h2>
+            <p class="section-desc">
+              Leylünehar’da her esans aynı el yapımı cam şişeye, aynı siyah boyalı mantar tıpaya
+              ve aynı siyah sicim bağına emanet edilir. Değişen yalnızca iki şeydir:
+              şişenin içindeki sıvının rengi ile pamuk kâğıdın ortasına düşülen isim ve numara.
+            </p>
+
+            <div class="swatch-selector" id="swatchSelector" role="tablist" aria-label="Öz ve etiket seçici">
+              <!-- Populated by app.js -->
+            </div>
+
+            <div class="craft-specs" id="craftSpecs">
+              <!-- Dynamic bottle specs -->
+            </div>
+          </div>
+
+          <div class="craft-stage">
+            <div class="stage-visual">
+              <img src="assets/buy-u-suz.jpg" alt="Seçili esans şişesi" id="craftBottleImg" class="stage-img" />
+            </div>
+            <div class="paper-cutout" aria-live="polite">
+              <div class="paper-edge-top" aria-hidden="true"></div>
+              <span class="paper-brand">LEYLÜNEHAR</span>
+              <span class="paper-atelier">ATELIER DE PARFUM</span>
+              <div class="paper-center">
+                <strong class="paper-name" id="paperName">BÛY Ü SÛZ</strong>
+                <em class="paper-edition" id="paperEdition">N° 03 / 100</em>
+              </div>
+              <span class="paper-footer">LIMITED FIRST EDITION &mdash; ISTANBUL</span>
+              <div class="paper-liquid-indicator">
+                <span class="liquid-dot" id="liquidDot"></span>
+                <span id="liquidToneText">Koyu Kehribar &middot; Ud Odunu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atelier de Cire (Candles) -->
+    <section class="section collection-section candles-section" id="mum">
+      <div class="container">
+        <div class="section-header split">
+          <div>
+            <p class="eyebrow">V. ATELIER DE CIRE</p>
+            <h2 class="section-title">Mum <em>Atölyesi</em></h2>
+          </div>
+          <div class="header-right-block">
+            <p class="section-desc">
+              Koyu ve mat tonlarda el dökümü heykelsi mum formları ile ağır taş kaplı imza seriler.
+              Heykelsi formların gövdesinde yazı bulunmaz; her parça yanında el yapımı yırtık pamuk atölye kartı ile sunulur.
+            </p>
+          </div>
+        </div>
+
+        <div class="subcollection-head">
+          <span class="subcollection-title">A. Heykelsi Formlar &mdash; <em>Formes Sculpturales</em></span>
+          <span class="subcollection-note">Etiketsiz yalın mum gövdesi &middot; Yırtık pamuk atölye kartı ile</span>
+        </div>
+        <div class="product-grid essence-grid sculptural-grid" id="sculpturalGrid">
+          <!-- Populated by app.js -->
+        </div>
+
+        <div class="subcollection-head subcollection-head-spaced">
+          <span class="subcollection-title">B. Kaplı Mumlar &mdash; <em>Cires en Vase</em></span>
+          <span class="subcollection-note">Bazalt taş &amp; füme cam kaplar &middot; 60–70 saat yanma</span>
+        </div>
+        <div class="product-grid candle-grid" id="candleGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Manifesto -->
+    <section class="section manifesto-section" id="manifesto">
+      <div class="container manifesto-inner">
+        <p class="eyebrow">VI. MANİFESTO</p>
+        <blockquote class="manifesto-quote">
+          “Kitle bizi belirlemez.<br />
+          Az olan kıymetlidir; <em>tekrarsız olan kalıcıdır.</em>”
+        </blockquote>
+        <div class="manifesto-columns">
+          <p>
+            Leylünehar, seri üretimin hızına ve gösterişçi kalabalığına karşı İstanbul’da kurulan
+            sessiz bir koku ve mum atölyesidir. İlhamını 17. yüzyıl Osmanlı attarlarının reçine,
+            ud ve baharatla kurduğu sabırlı terbiyeden; formunu ise eski Pera’nın Frenk atölyelerindeki
+            yalın ve tavizsiz estetikten alır.
+          </p>
+          <p>
+            Her edisyon önceden belirlenmiş sayıda dökülür, elde numaralandırılır ve deftere işlenir.
+            Klasik bir mağaza sepetimiz yoktur; bir şişe yahut mum yalnızca özel talep üzerine
+            atölyeden ayrılır. Çünkü bazı kokular herkes için değil, onları bekleyenler içindir.
+          </p>
+        </div>
+        <div class="manifesto-sign">
+          <span>LEYLÜNEHAR &mdash; İSTANBUL</span>
+          <em>Est. MMXXVI</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private Concierge / Request Band -->
+    <section class="section concierge-band" id="talep">
+      <div class="container concierge-inner">
+        <div class="concierge-copy">
+          <p class="eyebrow">VII. ÖZEL TALEP &amp; EDİSYON AYIRTMA</p>
+          <h2 class="section-title">Atölye Defterine <em>Kayıt</em></h2>
+          <p class="section-desc">
+            Açık edisyonlardan birini ayırtmak, tükenmiş arşiv kokuları için bekleme listesine
+            yazılmak veya özel döküm talebinde bulunmak için atölyemizle doğrudan iletişime geçin.
+          </p>
+        </div>
+        <div class="concierge-action">
+          <button type="button" class="btn-primary btn-large" data-open-request>Özel Talep Formunu Aç</button>
+          <span class="concierge-note">Yanıt süresi: Aynı gün içinde, atölye tarafından birebir.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">LEYLÜNEHAR</span>
+        <p>Atelier de Parfum &amp; de Cire &mdash; İstanbul</p>
+      </div>
+      <div class="footer-links">
+        <a href="#esans">Esans Arşivi</a>
+        <a href="#mum">Mum Atölyesi</a>
+        <a href="#zanaat">Şişe &amp; Mühür</a>
+        <a href="#manifesto">Manifesto</a>
+      </div>
+      <div class="footer-contact">
+        <span>@leylunehar.atelier</span>
+        <span>Yalnızca Özel Talep &amp; Randevu ile</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Leylünehar İstanbul. Tüm hakları saklıdır.</span>
+      <span>Numaralı &amp; Tekrarsız Edisyonlar</span>
+    </div>
+  </footer>
+
+  <!-- Edition Inspection Modal -->
+  <div class="modal-backdrop" id="detailModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel detail-panel">
+      <button type="button" class="modal-close" data-close-modal aria-label="Kapat">&times;</button>
+      <div class="detail-grid" id="detailContent">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Private Reservation / Request Drawer Modal -->
+  <div class="modal-backdrop" id="requestModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="requestTitle">
+    <div class="modal-panel request-panel">
+      <button type="button" class="modal-close" data-close-modal aria-label="Kapat">&times;</button>
+
+      <div id="requestFormView">
+        <p class="eyebrow">ATELIER CONCIERGE</p>
+        <h2 class="modal-title" id="requestTitle">Edisyon Ayırt / <em>Özel Talep</em></h2>
+        <p class="modal-subtitle">
+          Talebiniz atölye defterine işlenir. Edisyon numaranız ve teslimat detayları için sizinle birebir iletişime geçilir.
+        </p>
+
+        <form id="reservationForm" class="request-form" novalidate>
+          <div class="form-row">
+            <label for="reqEdition">Edisyon Seçimi</label>
+            <select id="reqEdition" name="edition" required>
+              <!-- Populated by app.js -->
+            </select>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-row">
+              <label for="reqType">Talep Türü</label>
+              <select id="reqType" name="type">
+                <option value="Edisyon Ayırtma">Edisyon Ayırtma</option>
+                <option value="Arşiv Bekleme Listesi">Arşiv Bekleme Listesi</option>
+                <option value="Özel Hediye &amp; İsim Mühürü">Özel Hediye &amp; İsim Mühürü</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="reqQuantity">Adet</label>
+              <select id="reqQuantity" name="quantity">
+                <option value="1">1 Adet</option>
+                <option value="2">2 Adet</option>
+                <option value="3">3 Adet (Özel Kutu)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-row">
+              <label for="reqName">Ad Soyad</label>
+              <input type="text" id="reqName" name="name" placeholder="Örn. Selim Karahan" required />
+            </div>
+            <div class="form-row">
+              <label for="reqContact">Telefon / WhatsApp</label>
+              <input type="tel" id="reqContact" name="contact" placeholder="+90 5XX XXX XX XX" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="reqCity">Şehir</label>
+            <input type="text" id="reqCity" name="city" placeholder="İstanbul" />
+          </div>
+
+          <div class="form-row">
+            <label for="reqNote">Etiket / Hediye Notu <span>(İsteğe bağlı)</span></label>
+            <textarea id="reqNote" name="note" rows="3" placeholder="El yazısı kart üzerine düşülmesini istediğiniz kısa bir not varsa belirtiniz..."></textarea>
+          </div>
+
+          <p class="form-error" id="formError" role="alert"></p>
+
+          <button type="submit" class="btn-primary btn-full">Talebi Deftere İşle</button>
+        </form>
+      </div>
+
+      <div id="requestSuccessView" class="request-success" hidden>
+        <p class="eyebrow">KAYIT MÜHÜRLENDİ</p>
+        <h3 class="modal-title">Talebiniz <em>Deftere İşlendi.</em></h3>
+        <div class="ledger-receipt">
+          <div class="receipt-row">
+            <span>Referans Mühürü</span>
+            <strong id="receiptCode">LN-2026-0001</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Seçilen Edisyon</span>
+            <strong id="receiptEdition">&mdash;</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Talep Sahibi</span>
+            <strong id="receiptName">&mdash;</strong>
+          </div>
+        </div>
+        <p class="modal-subtitle">
+          Dilerseniz talebinizi doğrudan atölye WhatsApp hattına aktararak öncelikli teyit alabilirsiniz.
+        </p>
+        <div class="success-actions">
+          <a href="#" id="whatsappLink" target="_blank" rel="noopener noreferrer" class="btn-primary btn-full">
+            WhatsApp Atölye Hattına Aktar
+          </a>
+          <button type="button" class="btn-ghost btn-full" id="resetRequestBtn">Yeni Talep Oluştur</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
