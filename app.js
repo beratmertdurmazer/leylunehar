@@ -14,7 +14,7 @@ const CATALOG = [
     meaning: '“Koku ve yanış; eski divan şiirinde ateşin bıraktığı iz.”',
     shortNotes: 'İsli Ud, Siyah Kehribar, Kakule, Yanık Sedir',
     description:
-      'Leylünehar’ın kurucu imzası. Koyu kehribar sıvının içinde dinlenen ham ud odunu ve kurutulmuş baharat çiçekleri, zamanla şişenin karakterini derinleştirir.',
+      'Leyl-ü Nehar’ın kurucu imzası. Koyu kehribar sıvının içinde dinlenen ham ud odunu ve kurutulmuş baharat çiçekleri, zamanla şişenin karakterini derinleştirir.',
     topNotes: 'Siyah Kakule, Tütsülenmiş Karabiber, Acı Bergamot',
     heartNotes: 'İsli Ud Odunu, Yanık Sedir, Kuru Karanfil',
     baseNotes: 'Siyah Kehribar, Ladin Reçinesi, Eski Deri',
@@ -356,7 +356,7 @@ function createProductCard(item) {
 
   card.innerHTML = `
     <div class="product-media">
-      <img src="${item.image}" alt="Leylünehar ${item.name} — ${item.edition}" loading="lazy" />
+      <img src="${item.image}?v=2" alt="Leyl-ü Nehar ${item.name} — ${item.edition}" loading="lazy" />
       <div class="media-badges">
         <span class="status-badge ${isArchived ? 'status-archived' : 'status-available'}">${item.statusText}</span>
         <span class="realm-pill">${item.realmLabel}</span>
@@ -466,8 +466,8 @@ function initCraftInspector() {
 function updateCraftStage(item) {
   craftBottleImg.style.opacity = '0.35';
   setTimeout(() => {
-    craftBottleImg.src = item.image;
-    craftBottleImg.alt = `Leylünehar ${item.name} — ${item.edition}`;
+    craftBottleImg.src = `${item.image}?v=2`;
+    craftBottleImg.alt = `Leyl-ü Nehar ${item.name} — ${item.edition}`;
     craftBottleImg.style.opacity = '1';
   }, 150);
 
@@ -529,7 +529,7 @@ function openDetailModal(id) {
 
   detailContent.innerHTML = `
     <div class="detail-image-col">
-      <img src="${item.image}" alt="Leylünehar ${item.name}" />
+      <img src="${item.image}?v=2" alt="Leyl-ü Nehar ${item.name}" />
     </div>
     <div class="detail-info-col">
       <p class="eyebrow">${item.category === 'essence' ? 'ATELIER DE PARFUM' : 'ATELIER DE CIRE'} &middot; ${item.realmLabel.toUpperCase()} SERİSİ</p>
@@ -648,7 +648,7 @@ reservationForm.addEventListener('submit', (e) => {
   receiptName.textContent = `${name} · ${city}`;
 
   const waText = encodeURIComponent(
-    `Merhaba Leylünehar Atölyesi,\n\n` +
+    `Merhaba Leyl-ü Nehar Atölyesi,\n\n` +
       `Referans: ${code}\n` +
       `Talep Türü: ${type}\n` +
       `Edisyon: ${selectedItem ? `${selectedItem.name} (${selectedItem.edition})` : ''}\n` +
