@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEYLÜNEHAR — A4 Baskıya Hazır Etiket &amp; Kart Şablonu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #12100e;
+      --panel: #1a1714;
+      --ink: #eae2d6;
+      --muted: #9e9384;
+      --brass: #c4a267;
+      --hairline: rgba(234, 226, 214, 0.14);
+      --print-ink: #161310;
+      --print-sub: #38322b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+
+    /* Screen-only Studio Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(18, 16, 14, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--hairline);
+      padding: 1rem 1.5rem;
+    }
+
+    .toolbar-inner {
+      max-width: 1120px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .toolbar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+    }
+
+    .toolbar-brand h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 0.24em;
+      font-weight: 400;
+    }
+
+    .toolbar-brand span {
+      font-size: 0.72rem;
+      color: var(--brass);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      font: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.25rem;
+      cursor: pointer;
+      border: 1px solid var(--hairline);
+      background: transparent;
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover { border-color: var(--brass); color: var(--brass); }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: var(--brass);
+      border-color: var(--brass);
+      color: var(--bg);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 0.75rem;
+      align-items: end;
+    }
+
+    .ctrl {
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+    }
+
+    .ctrl label {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .ctrl input,
+    .ctrl select {
+      background: #0d0b0a;
+      border: 1px solid var(--hairline);
+      color: var(--ink);
+      padding: 0.5rem 0.65rem;
+      font: inherit;
+      font-size: 0.82rem;
+    }
+
+    .ctrl input:focus,
+    .ctrl select:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+
+    .ctrl-check {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      padding-bottom: 0.45rem;
+    }
+
+    .ctrl-check input { width: auto; accent-color: var(--brass); }
+    .ctrl-check label { cursor: pointer; text-transform: none; letter-spacing: 0.02em; font-size: 0.76rem; color: var(--ink); }
+
+    .tip-bar {
+      max-width: 210mm;
+      margin: 1.4rem auto 0.9rem;
+      padding: 0.75rem 1rem;
+      background: var(--panel);
+      border-left: 2px solid var(--brass);
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tip-bar strong { color: var(--ink); font-weight: 500; }
+
+    /* ========================================================================
+       EXACT A4 PRINT SHEET (210mm × 297mm)
+       ======================================================================== */
+    .a4-sheet {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      background: #f7f2e8; /* Screen preview mimics cream cotton paper; transparent in print */
+      color: var(--print-ink);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+      padding: 16mm 16mm;
+      display: grid;
+      align-content: space-between;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .a4-sheet.layout-bottle {
+      grid-template-columns: repeat(2, 74mm);
+      grid-template-rows: repeat(3, 76mm);
+      padding: 19mm 22mm;
+    }
+
+    .a4-sheet.layout-candle {
+      grid-template-columns: repeat(2, 78mm);
+      grid-template-rows: repeat(3, 80mm);
+      padding: 16mm 20mm;
+    }
+
+    .a4-sheet.layout-card {
+      grid-template-columns: repeat(2, 82mm);
+      grid-template-rows: repeat(4, 56mm);
+      padding: 18mm 18mm;
+    }
+
+    /* Individual Label Cell with generous tear margin around content */
+    .label-cell {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      padding: 11mm 9mm;
+    }
+
+    .a4-sheet.layout-card .label-cell {
+      padding: 8mm 8mm;
+    }
+
+    /* Subtle corner tear-guide marks (torn away when using metal ruler) */
+    .show-guides .label-cell::before,
+    .show-guides .label-cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 0.25mm dashed rgba(22, 19, 16, 0.18);
+      pointer-events: none;
+    }
+
+    .show-guides .label-cell::after {
+      inset: 3.5mm;
+      border: 0.2mm dotted rgba(22, 19, 16, 0.08);
+    }
+
+    .lbl-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2mm;
+    }
+
+    .lbl-brand {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 13.5pt;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--print-ink);
+      line-height: 1;
+    }
+
+    .a4-sheet.layout-card .lbl-brand {
+      font-size: 11.5pt;
+    }
+
+    .lbl-atelier {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.2pt;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--print-sub);
+    }
+
+    .lbl-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4mm;
+      min-height: 15mm;
+    }
+
+    .a4-sheet.layout-card .lbl-center {
+      min-height: 11mm;
+    }
+
+    .lbl-name {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 11pt;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--print-ink);
+    }
+
+    .a4-sheet.layout-card .lbl-name {
+      font-size: 10pt;
+    }
+
+    .lbl-edition {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 12.5pt;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--print-ink);
+    }
+
+    .lbl-bottom {
+      font-family: 'Inter', sans-serif;
+      font-size: 5.5pt;
+      font-weight: 400;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--print-sub);
+    }
+
+    /* Print Rules: Pure 1:1 A4 Black Ink on User's Cotton Paper */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+      .toolbar,
+      .tip-bar {
+        display: none !important;
+      }
+      .a4-sheet {
+        background: transparent !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-inner">
+      <div class="toolbar-top">
+        <div class="toolbar-brand">
+          <h1>LEYLÜNEHAR</h1>
+          <span>A4 Baskı &amp; Etiket Şablonu</span>
+        </div>
+        <div class="toolbar-actions">
+          <a href="index.html" class="btn">&larr; Siteye Dön</a>
+          <button type="button" class="btn btn-primary" id="printBtn">A4 Yazdır / PDF Kaydet</button>
+        </div>
+      </div>
+
+      <div class="controls-grid">
+        <div class="ctrl">
+          <label for="tplType">Şablon Türü</label>
+          <select id="tplType">
+            <option value="bottle">Esans Şişesi (6’lı A4 · 74×76mm)</option>
+            <option value="candle">Kaplı Mum (6’lı A4 · 78×80mm)</option>
+            <option value="card">Heykelsi Mum Yan Kartı (8’li A4 · 82×56mm)</option>
+          </select>
+        </div>
+
+        <div class="ctrl">
+          <label for="centerMode">Orta Alan Modu</label>
+          <select id="centerMode">
+            <option value="full">Dolu Baskı (İsim + Sıralı N°)</option>
+            <option value="nameOnly">Sadece İsim (N° Elle Yazılacak)</option>
+            <option value="blank">Ortası Boş (Matbaa Sabit Şablon)</option>
+          </select>
+        </div>
+
+        <div class="ctrl">
+          <label for="editionName">Koku / Mum Adı</label>
+          <input type="text" id="editionName" value="BÛY Ü SÛZ" />
+        </div>
+
+        <div class="ctrl">
+          <label for="startNum">Başlangıç N°</label>
+          <input type="number" id="startNum" value="1" min="0" max="999" />
+        </div>
+
+        <div class="ctrl">
+          <label for="totalNum">Toplam Seri</label>
+          <input type="number" id="totalNum" value="100" min="1" max="999" />
+        </div>
+
+        <div class="ctrl">
+          <label for="bottomLine">Alt Satır</label>
+          <input type="text" id="bottomLine" value="LIMITED FIRST EDITION — ISTANBUL" />
+        </div>
+
+        <div class="ctrl ctrl-check">
+          <input type="checkbox" id="showGuides" checked />
+          <label for="showGuides">Silik cetvel/yırtma çizgisi</label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <p class="tip-bar">
+    <strong>Baskı İpucu:</strong> Yazdır penceresinde <em>Ölçek: %100 (Gerçek Boyut)</em>, <em>Kenar Boşlukları: Yok</em> seçip
+    <strong>120–160 gr krem Tintoretto Gesso / pamuk kâğıda</strong> (yan kartlar için 250–300 gr) lazer yazıcıda basın.
+    Silik dış çizgiden metal cetvelle yukarı doğru çekerek el yapımı yırtık kenarı çıkarın; çizgi yırtılan parçada kalır.
+  </p>
+
+  <main class="a4-sheet layout-bottle show-guides" id="a4Sheet" aria-label="A4 Baskı Önizlemesi">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <script>
+    const tplType = document.getElementById('tplType');
+    const centerMode = document.getElementById('centerMode');
+    const editionName = document.getElementById('editionName');
+    const startNum = document.getElementById('startNum');
+    const totalNum = document.getElementById('totalNum');
+    const bottomLine = document.getElementById('bottomLine');
+    const showGuides = document.getElementById('showGuides');
+    const a4Sheet = document.getElementById('a4Sheet');
+    const printBtn = document.getElementById('printBtn');
+
+    const CONFIG = {
+      bottle: { count: 6, atelier: 'ATELIER DE PARFUM', defaultName: 'BÛY Ü SÛZ', defaultTotal: 100 },
+      candle: { count: 6, atelier: 'ATELIER DE CIRE', defaultName: 'KANDİL-İ LEYL', defaultTotal: 150 },
+      card:   { count: 8, atelier: 'ATELIER DE CIRE', defaultName: 'BURGU-İ LEYL', defaultTotal: 120 }
+    };
+
+    function pad2(n) {
+      return String(Math.max(0, Number(n) || 0)).padStart(2, '0');
+    }
+
+    function renderSheet() {
+      const type = tplType.value;
+      const cfg = CONFIG[type];
+      const mode = centerMode.value;
+      const nameVal = editionName.value.trim();
+      const start = parseInt(startNum.value, 10) || 1;
+      const total = parseInt(totalNum.value, 10) || cfg.defaultTotal;
+      const footerVal = bottomLine.value.trim();
+
+      a4Sheet.className = `a4-sheet layout-${type}${showGuides.checked ? ' show-guides' : ''}`;
+      a4Sheet.innerHTML = '';
+
+      for (let i = 0; i < cfg.count; i++) {
+        const num = pad2(start + i);
+        let centerHtml = '';
+
+        if (mode === 'full') {
+          centerHtml = `
+            <div class="lbl-name">${nameVal}</div>
+            <div class="lbl-edition">N° ${num} / ${total}</div>
+          `;
+        } else if (mode === 'nameOnly') {
+          centerHtml = `
+            <div class="lbl-name">${nameVal}</div>
+            <div class="lbl-edition" style="opacity:0.45">N° &nbsp;&nbsp;&nbsp;&nbsp; / ${total}</div>
+          `;
+        } else {
+          centerHtml = '';
+        }
+
+        const cell = document.createElement('div');
+        cell.className = 'label-cell';
+        cell.innerHTML = `
+          <div class="lbl-top">
+            <div class="lbl-brand">LEYLÜNEHAR</div>
+            <div class="lbl-atelier">${cfg.atelier}</div>
+          </div>
+          <div class="lbl-center">${centerHtml}</div>
+          <div class="lbl-bottom">${footerVal}</div>
+        `;
+        a4Sheet.appendChild(cell);
+      }
+    }
+
+    tplType.addEventListener('change', () => {
+      const cfg = CONFIG[tplType.value];
+      editionName.value = cfg.defaultName;
+      totalNum.value = cfg.defaultTotal;
+      renderSheet();
+    });
+
+    [centerMode, editionName, startNum, totalNum, bottomLine, showGuides].forEach((el) => {
+      el.addEventListener('input', renderSheet);
+      el.addEventListener('change', renderSheet);
+    });
+
+    printBtn.addEventListener('click', () => window.print());
+
+    renderSheet();
+  </script>
+</body>
+</html>
