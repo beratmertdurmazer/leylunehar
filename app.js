@@ -25,7 +25,8 @@ const CATALOG = [
     price: '16.500 ₺',
     status: 'available',
     statusText: 'Sınırlı Edisyon · Kalan 7',
-    image: 'assets/buy-u-suz.jpg'
+    image: 'assets/buy-u-suz.jpg',
+    loopVideo: 'assets/videos/buy-u-suz-loop.mp4'
   },
   {
     id: 'seb-i-yelda',
@@ -697,6 +698,17 @@ resetRequestBtn.addEventListener('click', () => {
   reservationForm.reset();
   requestFormView.hidden = false;
   requestSuccessView.hidden = true;
+});
+
+// Atelier journal sound toggle buttons
+document.querySelectorAll('[data-toggle-sound]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const video = btn.closest('.film-media')?.querySelector('video');
+    if (!video) return;
+    video.muted = !video.muted;
+    btn.classList.toggle('unmuted', !video.muted);
+    btn.textContent = video.muted ? 'Ses: Kapalı' : 'Ses: Açık';
+  });
 });
 
 // Init

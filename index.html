@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <!-- Subtle atmospheric paper/film grain -->
@@ -125,7 +125,17 @@
 
         <div class="hero-visual">
           <figure class="hero-frame">
-            <img src="assets/buy-u-suz.jpg?v=2" alt="Leyl-ü Nehar Atelier de Parfum — Bûy ü Sûz N° 03 / 100 el dökümü esans şişesi" class="hero-img" />
+            <video
+              class="hero-img"
+              src="assets/videos/buy-u-suz-loop.mp4"
+              poster="assets/buy-u-suz.jpg?v=2"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              aria-label="Leyl-ü Nehar Atelier de Parfum — Bûy ü Sûz N° 03 / 100 canlı mum ışığı döngüsü"
+            ></video>
             <figcaption class="hero-caption">
               <span>BÛY Ü SÛZ</span>
               <em>N° 03 / 100 &mdash; Saf Esans</em>
@@ -328,6 +338,37 @@
           <span>LEYL-Ü NEHAR &mdash; İSTANBUL</span>
           <em>Est. MMXXVI</em>
         </div>
+
+        <!-- Atelier Journal: Faceless Craft Clips -->
+        <div class="atelier-films">
+          <div class="atelier-films-head">
+            <p class="eyebrow">ATÖLYEDEN KESİTLER &mdash; JOURNAL D’ATELIER</p>
+            <p class="atelier-films-note">Elde yırtılan ham pamuk kâğıt, siyah sicim bağı ve pirinç ibrikten dökülen balmumu.</p>
+          </div>
+          <div class="atelier-films-grid">
+            <figure class="film-card">
+              <div class="film-media">
+                <video src="assets/videos/atolye-esans.mp4" autoplay loop muted playsinline preload="metadata"></video>
+                <button type="button" class="film-sound-btn" data-toggle-sound aria-label="Sesi aç veya kapat">Ses: Kapalı</button>
+              </div>
+              <figcaption class="film-caption">
+                <span>I. ETİKET &amp; MÜHÜR</span>
+                <em>Pamuk kâğıt &amp; siyah sicim</em>
+              </figcaption>
+            </figure>
+
+            <figure class="film-card">
+              <div class="film-media">
+                <video src="assets/videos/atolye-mum.mp4" autoplay loop muted playsinline preload="metadata"></video>
+                <button type="button" class="film-sound-btn" data-toggle-sound aria-label="Sesi aç veya kapat">Ses: Kapalı</button>
+              </div>
+              <figcaption class="film-caption">
+                <span>II. BALMUMU &amp; KALIP</span>
+                <em>El dökümü heykelsi form</em>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -480,6 +521,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
